@@ -10,14 +10,25 @@ from extreme transient voltages.
 
 ![Prototype test jig](Images/CANMOD-v1_0-oblique.jpeg)
 
-
-
+This module was designed as a building block for rapidly creating Test Modules for
+the [Testomatic PCB Test Jig System](https://github.com/superhouse/testomatic). It
+allows the tester to communicate with a target Device Under Test via CAN bus. However,
+there is nothing specific about Testomatic in this module so it can be used for any
+project that requires an isolated on non-isolated CAN controller and transceiver.
 
 ## Features
 * MCP2515 CAN Controller
 * ISO1042 isolated CAN Transceiver
-* Split GND for logic and bus isolation if required.
-* Compatible with MCU logic levels from 1.7V to 5.5V.
+* Split GND for logic and bus isolation if required
+* Compatible with MCU logic levels from 1.7V to 5.5V
+* Onboard CAN termination
+
+CAN termination is enabled by default, via a cut-track jumper at the top right of the
+module labelled "TERM". To disable termination, cut the small track between the solder
+pads. The track can be bridged again later with solder if required.
+
+CAN termination is provided by a high-power 120R resistor, rated to withstand a dead
+short between either of the CAN bus lines and 12V vehicle power.
 
 ## Pinout
 * **VCCL**: Logic voltage to suit the connected microcontroller. Maximum range 1.7V - 5.5V
